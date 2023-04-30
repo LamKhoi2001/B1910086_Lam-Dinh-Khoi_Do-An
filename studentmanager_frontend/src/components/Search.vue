@@ -1,0 +1,38 @@
+<script>
+export default {
+    props: {
+        modelValue: { type: String, default: "" },
+    },
+    emits: ["submit", "update:modelValue"],
+    methods: {
+        updateModelValue(e) {
+            this.$emit("update:modelValue", e.target.value);
+        },
+        submit() {
+            this.$emit("submit");
+        },
+    },
+};
+</script>
+
+<template>
+    <div class="input-group">
+        <input
+            type="text"
+            class="form-control mr-sm-2"
+            placeholder="Nhập tên sinh viên"
+            :value="modelValue"
+            @input="updateModelValue"
+            @keyup.enter="submit"
+        />
+        <div class="input-group-append">
+            <button
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="button"
+                @click="submit"
+            >
+                <i class="search"></i> Tìm kiếm
+            </button>
+        </div>
+    </div>
+</template>
