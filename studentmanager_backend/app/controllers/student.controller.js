@@ -4,7 +4,7 @@ const ApiError = require("../api-error");
 
 exports.create = async (req, res, next) => {
   if (!req.body?.name) {
-    return next(new ApiError(400, "Name cannot be empty"));
+    return next(new ApiError(400, "Tên không được để trống"));
   }
 
   try {
@@ -12,7 +12,7 @@ exports.create = async (req, res, next) => {
     const document = await studentService.create(req.body);
     return res.send(document);
   } catch (error) {
-    return next(new ApiError(500, "An error occured " + req.body.email));
+    return next(new ApiError(500, "Đã xảy ra lỗi " + req.body.email));
   }
 };
 
@@ -27,7 +27,7 @@ exports.findAll = async (req, res, next) => {
       documents = await studentService.find({});
     }
   } catch (error) {
-    return next(new ApiError(500, "An error occured "));
+    return next(new ApiError(500, "Đã xảy ra lỗi "));
   }
   return res.send(documents);
 };
@@ -37,11 +37,11 @@ exports.findOne = async (req, res, next) => {
     const studentService = new StudentService(MongoDB.client);
     const document = await studentService.findById(req.params.id);
     if (!document) {
-      return next(new ApiError(404, "Student not found "));
+      return next(new ApiError(404, "Không tìm thấy sinh viên "));
     }
     return res.send(document);
   } catch (error) {
-    return next(new ApiError(500, `Error retrieving student id: ${req.params.id}`));
+    return next(new ApiError(500, `Lỗi khi truy xuất sinh viên id: ${req.params.id}`));
   }
 
   // res.send({ message: "findOne" });
@@ -49,15 +49,15 @@ exports.findOne = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
-    return next(new ApiError(404, "Data to update can not be empty"));
+    return next(new ApiError(404, "Không được để trống dữ liệu cần cập nhật"));
   }
 
   try {
     const studentService = new StudentService(MongoDB.client);
     const document = await studentService.update(req.params.id, req.body);
-    return res.send("student was updated successfully");
+    return res.send("Sinh viên đã được cập nhật thành công");
   } catch (error) {
-    return next(new ApiError(500, `Error updating student id: ${req.params.id}`));
+    return next(new ApiError(500, `Lỗi khi cập nhật sinh viên id: ${req.params.id}`));
   }
   // res.send({ message: "update" });
 };
@@ -67,11 +67,11 @@ exports.delete = async (req, res, next) => {
     const studentService = new StudentService(MongoDB.client);
     const document = await studentService.delete(req.params.id);
     if (!document) {
-      return next(new ApiError(404, "Student not found "));
+      return next(new ApiError(404, "Không tìm thấy sinh viên"));
     }
-    res.send({ message: "student was deleted successfully" });
+    res.send({ message: "Sinh viên đã được xóa thành công" });
   } catch (error) {
-    return next(new ApiError(500, `Error delete student id: ${req.params.id}`));
+    return next(new ApiError(500, `Lỗi xóa sinh viên id: ${req.params.id}`));
   }
 
   // res.send({ message: "delete" });
@@ -82,10 +82,10 @@ exports.deleteAll = async (req, res, next) => {
     const studentService = new StudentService(MongoDB.client);
     const deleteCount = await studentService.deleteAll();
     return res.send({
-      message: `delete all ${deleteCount} students.`,
+      message: `Xóa hết ${deleteCount} sinh viên.`,
     });
   } catch (error) {
-    return next(new ApiError(500, `Error delete all students.`));
+    return next(new ApiError(500, `Lỗi xóa tất cả sinh viên.`));
   }
   // res.send({ message: "deleteAll" });
 };

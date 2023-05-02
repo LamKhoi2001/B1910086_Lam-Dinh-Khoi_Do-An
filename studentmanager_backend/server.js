@@ -6,13 +6,13 @@ const MongoDB = require("./app/utils/mongodb.util");
 async function startServer(){
     try{
         await MongoDB.connect(config.db.uri);
-        console.log("Connected to the database!");
+        console.log("Đã kết nối với cơ sở dữ liệu!");
         const PORT = config.app.port;
         app.listen(PORT, () => {
-            console.log('Server is running on port ${PORT}');
+            console.log('Máy chủ đang chạy trên cổng ${PORT}');
         });
     } catch(error){
-        console.log("Cannot connect to the database!", error);
+        console.log("Không thể kết nối với cơ sở dữ liệu!", error);
         process.exit();
     }
 }
