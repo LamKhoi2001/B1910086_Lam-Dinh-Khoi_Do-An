@@ -5,7 +5,7 @@
         <div class="mr-auto navbar-nav">
             <li class="nav-item">
                 <router-link :to="{ name: 'studentmanager' }" class="nav-link">
-                    Trở Về Danh sách sinh viên
+                    Trở về Danh sách sinh viên
                     <i class="fas fa-address-book"></i>
                 </router-link>
             </li>
@@ -113,9 +113,7 @@
                     v-if="studentLocal._id"
                     type="button"
                     class="ml-2 btn btn-danger"
-                    @click="deleteStudent"
-                >
-                Xóa
+                    @click="deleteStudent"> Xóa
             </button>
         </div>
     </Form>

@@ -51,7 +51,7 @@ export default {
             }
         },
         async deleteStudent() {
-            if (confirm("Bạn muốn xóa Sinh viên này?")) {
+            if (confirm("Bạn muốn xóa sinh viên này?")) {
                 try {
                     await StudentService.delete(this.student._id);
                     this.$router.push({ name: "studentmanager" });

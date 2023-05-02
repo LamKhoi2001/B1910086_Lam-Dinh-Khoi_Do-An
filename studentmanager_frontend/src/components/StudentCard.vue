@@ -9,36 +9,28 @@
 <template>
     <div>
         <div class="p-1">
-            <strong>Họ & Tên SV:</strong>
-            {{ student.name }}
+            <strong>Họ & Tên SV:</strong> {{ student.name }}
         </div>
         <div class="p-1">
-            <strong>MSSV:</strong>
-            {{ student.mssv }}
+            <strong>MSSV:</strong> {{ student.mssv }}
         </div>
         <div class="p-1">
-            <strong>E-mail:</strong>
-            {{ student.email }}
+            <strong>E-mail:</strong> {{ student.email }}
         </div>
         <div class="p-1">
-            <strong>Lớp:</strong>
-            {{ student.lop }}
+            <strong>Lớp:</strong> {{ student.lop }}
         </div>
         <div class="p-1">
-            <strong>Khóa:</strong>
-            {{ student.khoa }}
+            <strong>Khóa:</strong> {{ student.khoa }}
         </div>
         <div class="p-1">
-            <strong>Ngành:</strong>
-            {{ student.nganh }}
+            <strong>Ngành:</strong> {{ student.nganh }}
         </div>
         <div class="p-1">
-            <strong>Điện thoại:</strong>
-            {{ student.phone }}
+            <strong>Điện thoại:</strong> {{ student.phone }}
         </div>
         <div class="p-1">
-            <strong>Địa chỉ:</strong>
-            {{ student.address }}
+            <strong>Địa chỉ:</strong> {{ student.address }}
         </div>
         <div class="p-1">
             <strong>Đánh dấu sinh viên:&nbsp;</strong>
